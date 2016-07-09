@@ -1,0 +1,117 @@
+.navbar{
+	border-radius: 0px;
+}
+
+.dropdown-menu li i{
+	min-width: 20px
+}
+
+.btn-list{    
+    display: table;
+    width: 100%;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 3px;
+    background: #069742;
+    height: 50px;
+    text-align: center;
+    margin: 2px 0;
+}
+
+.btn-type-add{
+    background: #222;
+}
+
+.btn-type-done{
+    background: #064a97;
+}
+
+.btn-type-default{    
+    background: #949494;
+    color: #232323;
+}
+
+.btn-list .btn-list-content{
+	display: table-cell;
+	vertical-align: middle;   
+}
+
+.btn-list .btn-list-item{   
+    height: 50px; 
+    padding-top: 5px;
+    text-align: initial;
+    position: relative;
+    background: #d6d6d6;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.btn-list-remove{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top:0;
+    right: 0;
+}
+
+.btn-list-edit{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top:0;
+    right: 50px;
+}
+
+.ellipsis{
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: ellipsis;
+}
+
+.my-modal{
+    position: fixed;    
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    z-index: 9999;
+}
+
+.my-well{
+    background: #efefef;
+    min-height: 150px;
+    border-radius: 5px;
+    border: #b1b1b1 solid 1px;
+    padding: 5px;
+}
+
+.my-modal-window{
+    position: relative;
+    background: #fff;
+    margin: 0 5px;
+    padding: 10px;
+    top: 5px;
+    margin-bottom: 5px;
+}
+
+.my-modal-content{    
+    min-height: 70px;
+}
+
+.my-modal-bg{
+    position:fixed;    
+    top: 0;
+    height:100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+}
+
+th:nth-last-child(1),
+td:nth-last-child(1) {
+    text-align: right;
+}
