@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "start": "NODE_ENV=dev babel-node src/server/server.js --presets es2015,stage-2",
+    "start-win": "babel-node src/server/server.js --presets es2015,stage-2",
     "watch": "webpack --config webpack.config.js --watch --colors",
     "watch-backup": "webpack --config config/webpack.js --watch --colors",
     "build": "NODE_ENV=production COMPRESS=1 webpack --config webpack.config.js --progress"
