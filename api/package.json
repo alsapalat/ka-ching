@@ -2,7 +2,8 @@
   "name": "ka-ching-api",
   "version": "1.0.0",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "watch": "nodemon src/server.js"
   },
   "author": "tehJUGZ",
   "dependencies": {
@@ -10,5 +11,8 @@
     "mysql": "~2.5.5",
     "body-parser": "~1.12.0",
     "MD5": "~1.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
   }
 }
