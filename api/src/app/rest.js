@@ -29,10 +29,19 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
 					"message" : "Error | " + err
 				});
 			} else {
-				res.json({
-					"error" : false,
-					"message" : "User has been Added!"
-				});
+                //List new users
+                var resquery = "SELECT * FROM ??"
+                var table = ["users"];
+                resquery = mysql.format(resquery, table);
+                connection.query(resquery, function(reserr ,resrows){
+                    if(!reserr){
+                        res.json({
+                            "error" : false,
+                            "message" : "User has been Added!", "Users": resrows
+                        });
+                    }
+                });
+				
 			}
 		});
     });
