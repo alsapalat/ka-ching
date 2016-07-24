@@ -5,3 +5,5 @@ site/node_modules/*
 site/bower_components/*
 npm-debug.log
 api/node_modules/*
+
+site_v2/node_modules/*
