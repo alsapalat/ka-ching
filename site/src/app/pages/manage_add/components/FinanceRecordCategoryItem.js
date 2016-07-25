@@ -81,7 +81,8 @@ class FinanceRecordCategoryItem extends Component{
 							    height: "20px",
 							    width: "100%"
 							}}>
-							{data.name} - <small>{data.note}</small></span>
+							<span className="mask-fade-right">{data.name} - <small>{data.note}</small></span>
+						</span>
 						<span
 							style={{
 							    float: "right",
