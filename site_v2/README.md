@@ -278,3 +278,4 @@ We will consider integrating more tightly with Flow in the future so that you do
 ### Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/template/README.md)
+# react-15-project

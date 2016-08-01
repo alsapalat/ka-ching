@@ -7,3 +7,4 @@ npm-debug.log
 api/node_modules/*
 
 site_v2/node_modules/*
+site_v2/bower_components/*

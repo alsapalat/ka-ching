@@ -1,0 +1,7 @@
+export const SEED_BUTLER_UPDATE_SELECTED_USERS = 'SEED_BUTLER_UPDATE_SELECTED_USERS'
+export const SEED_BUTLER_UPDATE_SELECTED_AUCTIONS = 'SEED_BUTLER_UPDATE_SELECTED_AUCTIONS'
+
+export const INITIAL_STATE = {
+	selected_users: [],
+	selected_auctions: []
+}
