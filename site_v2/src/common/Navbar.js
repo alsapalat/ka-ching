@@ -31,13 +31,13 @@ const NavHeader = () => {
 				<span className="icon-bar"></span>
 			</button>
 			<Link className="navbar-brand" to="/">
-				ADMIN
+				TEST
 				<b style={{
-				    borderLeft: "solid 3px #f5b700",
-				    color: "#f5b700",
+				    borderLeft: "solid 3px #069742",
+				    color: "#069742",
 				    padding: "2px",
 				    marginLeft: "2px"
-				}}>PISO</b></Link>
+				}}>PROJECT</b></Link>
 		</div>
 	)
 }
@@ -54,17 +54,17 @@ const NavItems = ({page}) => {
 							to="/seed" 
 							className="dropdown-toggle"
 							data-toggle="dropdown">
-							Seed <span className="caret"/></Link>
+							Menu 1 <span className="caret"/></Link>
 						<ul className="dropdown-menu">							
 							<NavItem 
 								page={ page }
-								to='/seed/user' 
-								label='User'
+								to='/item1' 
+								label='Item 1'
 								/>
 							<NavItem 
 								page={ page }
-								to='/seed/butler' 
-								label='Butler'
+								to='/item2' 
+								label='Item 2'
 								/>
 						</ul>
 					</li>

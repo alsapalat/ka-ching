@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 var md5 = require("MD5");
 var rest = require("./app/rest.js");
 
+var config = require("../config.js");
+
 var app = express();
 
 function REST(){
@@ -15,10 +17,10 @@ REST.prototype.connectMysql = function() {
 	var self = this;
 	var pool = mysql.createPool({
 		connectionLimit : 100,
-		host: 'localhost',
-		user: 'root',
-		password: '',
-		database: 'ka-ching_db',
+		host: config.host,
+		user: config.user,
+		password:config.password,
+		database: config.database,
 		debug: false
 	});
 	pool.getConnection(function(err,connection){
@@ -41,8 +43,8 @@ REST.prototype.configureExpress = function(connection) {
 }
 
 REST.prototype.startServer = function(){
-	app.listen(3011, function(){
-		console.log("Server has Started at Port 3011...");
+	app.listen(config.port, function(){
+		console.log("Server has Started at Port " + config.port + "...");
 	});
 }
 

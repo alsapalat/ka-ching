@@ -30,6 +30,7 @@ elixir(function(mix){
 			'bootstrap.min.css',
             'font-awesome.min.css',
             'style.css',
-            'animate.css'
+            'animate.css',            
+            'fixed-data-table.min.css'
 		],'dist/css/common.min.css')
 })
