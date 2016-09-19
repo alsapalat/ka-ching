@@ -5,8 +5,10 @@ import './assets/style.css';
 class ListView extends Component{
 
 	state = {
-		mode: "list",
-		items: []
+		mode: "grid",
+		items: [],
+		search_mode: "local",
+		search_keyword: ""
 	}
 
 	componentWillMount = () =>{
@@ -16,11 +18,13 @@ class ListView extends Component{
 	}
 
 	handleSearch = (keyword) => {
-		console.log("Search for '" + keyword + "'");
+		//console.log("Search for '" + keyword + "'", localSearch(this.state.items, keyword, ["name", "sub"]));
+		this.setState({search_keyword: keyword});
 	}
 
 	handleClearSearch = () => {
-		console.log("Clear Search");
+		//console.log("Clear Search");
+		this.setState({search_keyword: ""});
 	}
 
 	_renderGrid = (item) => {
@@ -44,12 +48,15 @@ class ListView extends Component{
 
 	render()
 	{
-		const { mode, items, loading } = this.state;
+		const { mode, items, loading, search_keyword } = this.state;
+
+		const filter_items = localSearch(items,search_keyword,["Username", "Action", "Date"]);
 
 		return(
 			<div className="teh-list-view-wrapper">
 				<div className="teh-list-view-header">
 					<SearchBar 
+						result={filter_items.length}
 						onSearch={this.handleSearch}
 						onClear={this.handleClearSearch}/>
 
@@ -64,7 +71,7 @@ class ListView extends Component{
 					mode={mode}
 					gridComponent={this._renderGrid}
 					listComponent={this._renderList}
-					items={items}
+					items={filter_items}
 					loading={loading}
 					onLoadMore={this.handleLoadMore}
 					canLoadMore={true}/>
@@ -72,6 +79,23 @@ class ListView extends Component{
 			</div>
 		)
 	}
+}
+
+function localSearch(source, keyword, key_fields){
+	let result = [];
+
+	result = source.filter((item) => {
+		let has_match = false;
+		key_fields.map((key) => {
+			let check = item[key] || "";
+			if(check.toLowerCase().indexOf(keyword.toLowerCase()) !== -1)
+				has_match = true;
+			return key;
+		})
+		return has_match;
+	})
+
+	return result;
 }
 
 const ListViewWrapper = ({mode, gridComponent, listComponent, items, onLoadMore, canLoadMore, loading}) => {
@@ -128,9 +152,10 @@ const ListWrapper = ({items, renderComponent, loading, onLoadMore, canLoadMore})
 
 		}}>
 			{items.map((item,i) => {
+				let _shouldRender = true;
 				return (
 					<div className="col-xs-12" key={i}>
-						{renderComponent(item)}
+						{renderComponent({...item, _shouldRender})}
 					</div>
 				)
 			})}
@@ -140,7 +165,7 @@ const ListWrapper = ({items, renderComponent, loading, onLoadMore, canLoadMore})
 }
 
 
-const SearchBar = ({value ,onSearch, onClear}) => {
+const SearchBar = ({value ,onSearch, onClear, result}) => {
 
 	let keyword = {}
 
@@ -159,6 +184,7 @@ const SearchBar = ({value ,onSearch, onClear}) => {
 				placeholder="Search..."
 				defaultValue={value}
 				className="form-control"/>
+			<span>Total Items: <b>{result}</b></span>
 		</form>
 	)
 }
