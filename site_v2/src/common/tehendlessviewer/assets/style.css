@@ -1,0 +1,75 @@
+.teh-endless-viewer{
+    position: relative;
+    border: 1px solid #e2e2e2;
+    border-radius: 2px;
+    min-height: 480px;
+}
+
+.teh-endless-viewer.window{
+    height: 480px;
+}
+
+.teh-endless-viewer .header{
+	padding: 1px;
+    min-height: 10%;
+    background: #ececec;
+    border: solid 1px #e2e2e2;
+    margin: -1px -1px 0px -1px;
+}
+
+.teh-endless-viewer .header .total-items{
+    font-size: 10px;
+    position: absolute;
+    top: 33px;
+    left: 6px;
+    color: #999999;
+}
+
+.teh-endless-viewer .header .search{
+	position: relative;
+	width: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.teh-endless-viewer .header .search input{
+	position: absolute;
+}
+
+.teh-endless-viewer .header .clear{
+	position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: #777;
+    outline: none;
+}
+
+.teh-list-view{
+	position: relative;
+	overflow: auto;
+	height: 90%;
+}
+
+.teh-list-view .item{
+	width: 100%;
+}
+
+.loader{
+    text-align: center;
+    width: 100%;
+}
+
+.teh-grid-view{
+	position: relative;
+	overflow: auto;
+	height: 90%;
+    margin: 0;
+}
+
+.teh-grid-view .row{
+	width: 100%;
+	display: -webkit-box;
+    margin: 0;
+}

@@ -1,0 +1,139 @@
+.teh-chat{
+	z-index: 9999;
+	position: fixed;
+}
+
+.teh-chat.bottom-right{
+    right: 1%;
+    bottom: 1%;
+}
+
+.teh-chat .toggle{
+	outline: none;
+    background: #ececec;
+	color: #333;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0px 0px 5px #000;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.teh-chat.open .toggle{    
+	border-radius: 0;
+    height: 30px;
+    width: 30px;
+    box-shadow: 0px 0px 1px #000;
+}
+
+.teh-chat .toggle:hover{
+	background: #333;
+	color: #ececec;
+}
+
+.teh-chat .toggle:disabled{
+	color: #bbbbbb
+}
+
+.teh-chat .toggle:disabled:hover{
+	color: #bbbbbb;
+	background: #ececec;	
+}
+
+.teh-chat .toggle.dark{
+	background: #333;
+}
+
+.teh-chat .chat-panel{
+	overflow: hidden;
+    z-index: -1;
+    width: 10px;
+    height: 10px;
+    bottom: 18px;
+    right: 18px;	
+    position: absolute;
+    border: 1px solid #c5c5c5;
+    background: #ececec;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.25);
+
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.teh-chat.open .chat-panel{
+	position: relative;
+    width: 220px;
+    height: 260px;	
+    bottom: -1px;
+    right: -1px;
+}
+
+.teh-chat .chat-header{
+	background: #333;
+    color: #ececec;
+    height: 30px;
+    box-shadow: 0px 0px 15px #000;
+}
+
+.teh-chat .chat-header span{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 170px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.teh-chat .chat-header.dark{    
+	background: #ececec;
+	color: #333;
+}
+
+.teh-chat .chat-header button{
+	outline: none;
+	height: 30px;
+	border: none;
+	background: none;
+	color: #fff;
+}
+
+.teh-chat .chat-panel .chat-content{
+    position: absolute;
+    top: 30px;
+    right: 0;
+    left: 0;
+    bottom: 30px;
+    overflow: auto;
+    background: #fff;
+    z-index: -1;
+}
+
+.teh-chat .chat-panel .chat-input{
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    right: 30px;
+    height: 32px;
+}
+
+.teh-chat .chat-panel .chat-input textarea{
+	width: 100%;
+	height: 100%;
+	padding: 5px;
+	outline: none;
+	resize:none;
+}

@@ -14,6 +14,9 @@ const history = syncHistoryWithStore(browserHistory, store);
 import Layout from './Layout';
 
 import TemplateForm from './common/templates';
+import CSVNormalizer from './common/csv_normalizer';
+import Seeder from './common/tehSeeder';
+import NavStyle from './pages/nav_style1';
 
 //PAGE
 import App from './pages/home/App';
@@ -27,10 +30,13 @@ export const Routes = () =>{
 	return(
 		<Provider store={ store }>
 			<Router history={ history } onUpdate={()=>{ window.scrollTo(0,0);}}>
+				<Route path="/nav-style" component={ NavStyle }/>
 				<Route path="/templates" component={ TemplateForm }/>
+				<Route path="/csv-normalizer" component={ CSVNormalizer }/>
 				<Route path="/" component={ Layout }>
 					<IndexRoute component={ App }/>
 					<Route path="/sample-table" component={ TableSample }/>
+					<Route path="/seeder" component={ Seeder }/>
 					{ seederRoute() }
 				</Route>
 

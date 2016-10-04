@@ -34,10 +34,19 @@ REST.prototype.connectMysql = function() {
 
 REST.prototype.configureExpress = function(connection) {
 	var self = this;
+	
+	app.use(function(req, res, next) {
+	  res.header("Access-Control-Allow-Origin", "*");
+	  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	  next();
+	});
+	
 	app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(bodyParser.json());
 	var router = express.Router();
 	app.use('/api', router);
+
+
 	var rest_router = new rest(router, connection, md5);
 	self.startServer();
 }

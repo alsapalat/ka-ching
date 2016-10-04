@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { Navigation } from './common/Navbar';
 
+import TehChat from './common/tehChat';
+
 class Layout extends Component{
 
 	render(){
@@ -10,6 +12,12 @@ class Layout extends Component{
 
 		return(
 			<div>
+				<TehChat 
+					room={{
+						id: "general",
+						label: "General Chat Room"
+					}}/>
+
 				<Navigation 
 					page={ pathname }/>
 
