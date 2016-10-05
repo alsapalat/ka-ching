@@ -13,8 +13,16 @@ class Layout extends Component{
 		return(
 			<div>
 				<TehChat 
+					firebase={{
+						apiKey: 't3ifHgzj3ni3jHQwhwS9jxGzT543Y34MKxQUYw1L',
+    					databaseURL: 'https://tehfirebase.firebaseio.com',
+					}}
 					room={{
 						id: "general",
+						sender: {
+							id: 2,
+							name: "Admin"
+						},
 						label: "General Chat Room"
 					}}/>
 
