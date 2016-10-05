@@ -96,6 +96,10 @@ class TehChat extends Component{
 			label,
 			messages
 		})
+
+		setTimeout(()=>{
+			this.scrollToBottom('chat-content');	
+		},100);		
 	}
 
 	socketRoomChange = (s) => {
@@ -103,7 +107,9 @@ class TehChat extends Component{
 			case "label":
 				return this.setState({label: s.val()})
 			case "messages":
-				this.scrollToBottom('chat-content');
+				setTimeout(()=>{
+					this.scrollToBottom('chat-content');	
+				},100);				
 				return this.setState({messages: s.val()})
 			case "typing":
 				return this.setState({typing: s.val()})
@@ -168,10 +174,9 @@ class TehChat extends Component{
 
 	handleToggleChat = (open) => {
 
-		this.setState({open: open})
+		this.setState({open: open});
 
 		if(!open){
-			this.scrollToBottom('chat-content');
 			let obj = document.getElementById('chat-toggle');
 			obj.focus();
 		}
@@ -180,13 +185,16 @@ class TehChat extends Component{
 	getTyping = (users) =>{
 		let t = ""
 		let arr = Object.keys(users);
+		let t_count = 0;
 		arr.map((user,i)=>{
-			if(user !== "-01")
-				t += `${(i > 0)?", ":""}${users[user].name}`
+			if(user !== "-01" && user !== `${this.props.room.sender.id}`){
+				t_count += 1;
+				t += `${(t_count > 1)?", ":""}${users[user].name}`
+			}
 			return null;
 		})
-		if(arr.length > 1)
-			return `${t} ${(arr.length > 2) ? "are" : "is"} typing...`;
+		if(t_count > 0)
+			return `${t} ${(t_count > 1) ? "are" : "is"} typing...`;
 		return "";
 	}
 
@@ -227,6 +235,7 @@ class TehChat extends Component{
 							return(
 								<div className="chat-message" key={i}>
 									<div className={`chat-bubble ${(messages[msg].sender.id === room.sender.id) ? "arrow self" : (messages[msg].sender.id === -1) ? "system" : ""}`}>
+										<div className="name">{messages[msg].sender.name}</div>
 										<div className="message">{messages[msg].message}</div>
 									</div>
 								</div>

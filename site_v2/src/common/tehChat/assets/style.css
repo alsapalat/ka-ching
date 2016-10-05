@@ -57,14 +57,15 @@
 .teh-chat .chat-panel{
 	overflow: hidden;
     z-index: -1;
-    width: 10px;
-    height: 10px;
+    width: 0px;
+    height: 260px;
     bottom: 18px;
     right: 18px;	
     position: absolute;
     border: 1px solid #c5c5c5;
     background: #ececec;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.25);
+    opacity: 0;
 
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
@@ -79,6 +80,7 @@
     height: 260px;	
     bottom: -1px;
     right: -1px;
+    opacity: 1;
 }
 
 .teh-chat .chat-header{
@@ -141,6 +143,7 @@
 
 .teh-chat .chat-panel .chat-content .chat-message{
     position: relative;
+    margin-top: 10px;
 }
 
 .teh-chat .chat-panel .chat-content .chat-message .chat-bubble{
@@ -161,6 +164,15 @@
     text-align: center;
 }
 
+.teh-chat .chat-panel .chat-content .chat-message .chat-bubble .name{
+    position: absolute;
+    text-align: right;
+    right: 3px;
+    bottom: 35px;
+    font-size: 10px;
+    color: #a2a2a2;
+}
+
 .teh-chat .chat-panel .chat-content .chat-message .chat-bubble.system .message{
     color: #8e8e8e;
     border: none;
@@ -173,6 +185,10 @@
 
 .teh-chat .chat-panel .chat-content .chat-message .chat-bubble.self{
     text-align: left;
+}
+
+.teh-chat .chat-panel .chat-content .chat-message .chat-bubble.self .name{
+    display: none;
 }
 
 .teh-chat .chat-panel .chat-content .chat-message .chat-bubble.self .message{

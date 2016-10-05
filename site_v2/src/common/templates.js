@@ -4,6 +4,8 @@ import EndlessViewer from './tehendlessviewer/';
 
 import DrawerButton from './tehbuttondrawer/';
 
+import TehChat from '../common/tehChat';
+
 class TemplateForm extends Component{
 
 	state = {
@@ -179,6 +181,21 @@ class TemplateForm extends Component{
 
 		return(
 			<div className="container">
+
+				<TehChat 
+					firebase={{
+						apiKey: 't3ifHgzj3ni3jHQwhwS9jxGzT543Y34MKxQUYw1L',
+    					databaseURL: 'https://tehfirebase.firebaseio.com',
+					}}
+					room={{
+						id: "general",
+						sender: {
+							id: 3,
+							name: "Absolute"
+						},
+						label: "General Chat Room"
+					}}/>
+
 
 				<DrawerButton
 					label="Download Report">
