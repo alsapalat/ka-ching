@@ -12,7 +12,7 @@ class NavStyle extends Component{
 	}
 
 	shouldComponentUpdate(prev_prop, prev_state){
-		if(prev_state.bignav === this.state.bignav)
+		if(prev_state.bignav !== this.state.bignav)
 			return false;
 		return true;
 	}
@@ -22,11 +22,9 @@ class NavStyle extends Component{
 		return this.setState({bignav: (obj.scrollTop < 200)})
 	}
 
-	
-
 	render(){
 
-		const { bignav } = this.state
+		const { bignav } = this.state;
 
 		return(
 			<div id="main" onScroll={this.handleOnScroll}>
@@ -45,8 +43,7 @@ class NavStyle extends Component{
 					<div className="well" style={{height:"300px"}}></div>
 					<div className="well" style={{height:"300px"}}></div>
 					<div className="well" style={{height:"300px"}}></div>
-					<div className="well" style={{height:"300px"}}></div>
-					<div className="well" style={{height:"300px"}}></div>
+					<TestInputCommon/>
 				</div>
 
 				<TehChat 
@@ -70,6 +67,61 @@ class NavStyle extends Component{
 }
 
 export default NavStyle
+
+class TestInputCommon extends Component{
+	state = {
+		a: "",
+		b: "",
+		c: "",
+		d: "",
+		e: "",
+		f: "",
+		g: ""
+	}
+	render(){
+		const {
+			a,
+			b,
+			c,
+			d,
+			e,
+			f,
+			g
+		} = this.state;
+
+		const input_common = {
+			className: "form-control",
+			onChange: (e)=>{
+				let n = {};
+				n[e.target.name] = e.target.value;
+				this.setState(n);
+			}
+		}
+		return(
+			<div>
+				<div className="well" style={{height:"300px"}}>
+					<div>a:{a}</div>
+					<div>b:{b}</div>
+					<div>c:{c}</div>
+					<div>d:{d}</div>
+					<div>e:{e}</div>
+					<div>f:{f}</div>
+					<div>g:{g}</div>
+				</div>
+				<div className="well" style={{height:"300px"}}>
+
+					<input {...input_common} placeholder="A" name="a" value={a}/>
+					<input {...input_common} placeholder="B" name="b" value={b}/>
+					<input {...input_common} placeholder="C" name="c" value={c}/>
+					<input {...input_common} placeholder="D" name="d" value={d}/>
+					<input {...input_common} placeholder="E" name="e" value={e}/>
+					<input {...input_common} placeholder="F" name="f" value={f}/>
+					<input {...input_common} placeholder="G" name="g" value={g}/>
+				</div>
+			</div>
+		)
+	}
+}
 
 // generateCombinations = (a,b) => {
 // 	let temp = ""
