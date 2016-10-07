@@ -4,11 +4,14 @@ import { Link } from 'react-router'
 import './assets/style.css';
 
 import TehChat from '../../common/tehChat';
+import AddressPicker from '../../common/tehAddressPicker';
 
 class NavStyle extends Component{
 
 	state = {
-		bignav: true
+		bignav: true,
+		address1: "",
+		address2: ""
 	}
 
 	shouldComponentUpdate(prev_prop, prev_state){
@@ -22,9 +25,13 @@ class NavStyle extends Component{
 		return this.setState({bignav: (obj.scrollTop < 200)})
 	}
 
+	parseAddress = (a) => {
+		return `Country Code: ${a.country}, Province ID: ${a.province}, City ID: ${a.city}, Street: ${a.street}`
+	}
+
 	render(){
 
-		const { bignav } = this.state;
+		const { bignav, address1, address2 } = this.state;
 
 		return(
 			<div id="main" onScroll={this.handleOnScroll}>
@@ -41,8 +48,30 @@ class NavStyle extends Component{
 
 				<div className="container" style={{marginTop: "200px"}}>
 					<div className="well" style={{height:"300px"}}></div>
-					<div className="well" style={{height:"300px"}}></div>
-					<div className="well" style={{height:"300px"}}></div>
+					<div className="well" style={{height:"300px"}}>
+						<h1>Address Picker Sample</h1>
+
+						<AddressPicker 
+							onChange={(data)=>{
+								this.setState({
+									address1: this.parseAddress(data)
+								})
+							}}/>
+
+						<div>{address1}</div>
+					</div>
+					<div className="well" style={{height:"300px"}}>
+						<h1>Address Picker Sample 2</h1>
+
+						<AddressPicker 
+							onChange={(data)=>{
+								this.setState({
+									address2: this.parseAddress(data)
+								})
+							}}/>
+							
+						<div>{address2}</div>
+					</div>
 					<TestInputCommon/>
 				</div>
 
@@ -97,6 +126,7 @@ class TestInputCommon extends Component{
 				this.setState(n);
 			}
 		}
+		
 		return(
 			<div>
 				<div className="well" style={{height:"300px"}}>

@@ -6,6 +6,7 @@
     "react-scripts": "0.1.0"
   },
   "dependencies": {
+    "axios": "^0.14.0",
     "firebase": "^3.4.1",
     "fixed-data-table": "^0.6.3",
     "laravel-elixir": "^6.0.0-9",
@@ -15,6 +16,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.6.0",
     "react-router-redux": "^4.0.5",
+    "react-select": "^1.0.0-rc.2",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0"
   },

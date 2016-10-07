@@ -29,9 +29,9 @@ class TehChat extends Component{
 	}
 
 	componentDidMount(){
-		setTimeout(()=>{
-			this.handleToggleChat(true);
-		},3000);		
+		// setTimeout(()=>{
+		// 	this.handleToggleChat(true);
+		// },3000);		
 	}
 
 	scrollToBottom = (id) => {
@@ -89,6 +89,8 @@ class TehChat extends Component{
 		this.chatRoomRef.on('child_changed', snapshot=>{
 			this.socketRoomChange(snapshot);
 		})
+
+		this.handleToggleChat(true);
 
 		this.setState({
 			connected: true,
