@@ -49,26 +49,30 @@ class NavStyle extends Component{
 				<div className="container" style={{marginTop: "200px"}}>
 					<div className="well" style={{height:"300px"}}></div>
 					<div className="well" style={{height:"300px"}}>
-						<h1>Address Picker Sample</h1>
+						<h1>Address Picker Instance 1</h1>
 
-						<AddressPicker 
-							onChange={(data)=>{
-								this.setState({
-									address1: this.parseAddress(data)
-								})
-							}}/>
+						<div className="col-md-3"> 
+							<AddressPicker 
+								onChange={(data)=>{
+									this.setState({
+										address1: this.parseAddress(data)
+									})
+								}}/>
+						</div>
 
 						<div>{address1}</div>
 					</div>
 					<div className="well" style={{height:"300px"}}>
-						<h1>Address Picker Sample 2</h1>
+						<h1>Address Picker Instance 2</h1>
 
-						<AddressPicker 
-							onChange={(data)=>{
-								this.setState({
-									address2: this.parseAddress(data)
-								})
-							}}/>
+						<div className="col-md-3"> 
+							<AddressPicker 
+								onChange={(data)=>{
+									this.setState({
+										address2: this.parseAddress(data)
+									})
+								}}/>
+						</div>
 							
 						<div>{address2}</div>
 					</div>
