@@ -11,7 +11,8 @@ class NavStyle extends Component{
 	state = {
 		bignav: true,
 		address1: "",
-		address2: ""
+		address2: "",
+		address3: ""
 	}
 
 	shouldComponentUpdate(prev_prop, prev_state){
@@ -31,7 +32,7 @@ class NavStyle extends Component{
 
 	render(){
 
-		const { bignav, address1, address2 } = this.state;
+		const { bignav, address1, address2, address3 } = this.state;
 
 		return(
 			<div id="main" onScroll={this.handleOnScroll}>
@@ -47,7 +48,22 @@ class NavStyle extends Component{
 				</div>
 
 				<div className="container" style={{marginTop: "200px"}}>
-					<div className="well" style={{height:"300px"}}></div>
+					<div className="well" style={{height:"300px"}}>
+						<h1>Address Picker Instance 3</h1>
+						<AddressPicker 
+							value={{
+								country: "PH",
+								province: 24,
+								city: 434,
+								street: "AUP"
+							}}
+							onChange={(data)=>{
+								this.setState({
+									address3: this.parseAddress(data)
+								})
+							}}/>	
+						{address3}				
+					</div>
 					<div className="well" style={{height:"300px"}}>
 						<h1>Address Picker Instance 1</h1>
 

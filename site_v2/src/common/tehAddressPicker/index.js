@@ -19,7 +19,7 @@ class AddressPicker extends Component{
 		country: "",
 		province: "",
 		city: "",
-		street: "",
+		street: ""
 	}
 
 	componentWillMount(){
@@ -29,6 +29,23 @@ class AddressPicker extends Component{
 
 	componentDidMount(){
 		this.getCountries();
+
+		const { value } = this.props
+		if(value){
+			const { country, province, city, street } = value;
+			if(country)
+				this.getProvinces(country);
+			if(province)
+				this.getCities(country,province)
+
+
+			this.setState({
+				country: country,
+				province: province,
+				city: city,
+				street: street	
+			})			
+		}
 	}
 
 	handleOnChange = () => {
@@ -157,7 +174,7 @@ class AddressPicker extends Component{
 
 				<div>
 					<Select
-						placeholder="Select Province..."
+						placeholder="Select Province/State..."
 						disabled={(provinces.length < 1)}
 						value={province}
 						options={provinces}
@@ -183,7 +200,7 @@ class AddressPicker extends Component{
 
 				<div>
 					<Select
-						placeholder="Select City..."
+						placeholder="Select City/Municipality..."
 						disabled={(cities.length < 1)}
 						value={city}
 						options={cities}
@@ -201,7 +218,7 @@ class AddressPicker extends Component{
 						}}/>
 				</div>
 				<div>	
-					<input placeholder="Street..."className="form-control" value={street} onChange={(e)=>{
+					<input placeholder="House No./Street/Barangay..."className="form-control" value={street} onChange={(e)=>{
 						this.handleOnChange();
 						this.setState({
 							street: e.target.value
@@ -216,10 +233,8 @@ class AddressPicker extends Component{
 
 export default AddressPicker
 
-// eslint-disable-next-line to ignore the next line.
 class Api{
 
-	// eslint-disable-next-line to ignore the next line.
 	constructor(){
 		const { endPoint } = Config;
         this.instance = axios.create({
@@ -257,3 +272,103 @@ class Api{
         return arr.join("&");
     }
 }
+
+
+
+/*return(
+	<div>
+		<Select
+			placeholder="Select..."
+			disabled={(data.length < 1)}
+			value={data_val.value}
+			options={data}
+			isLoading={data_loading}
+			onChange={(params)=>{
+				if(params)
+					return this.setState({
+						data_val: params
+					})
+				return this.setState({
+					data_val: {}
+				})
+			}}/>
+		<div>
+			<div><span>Province: </span><b>{(data_val.province)?data_val.province.name:""}</b></div>
+			<div><span>Municipality: </span><b>{data_val.label}</b></div>
+			<div><span>Zip Code: </span><b>{data_val.zip_code}</b></div>					
+		</div>
+	</div>
+)*/
+
+/*
+// this.gApi.get('/address', 
+// `{
+// 	municipalities 
+// 	{
+// 		id,
+// 		name,
+// 		zip_code,
+// 		province, 
+// 		{
+// 			id,
+// 			name,
+// 			regional_office_id
+// 		}
+// 	}
+// }`)
+// .then(res => {
+// 	this.setState({
+// 		data:res.data.municipalities.map((d)=>{
+// 			return{
+// 				label: d.name + " - " + d.province.name,
+// 				province: d.province,
+// 				zip_code: d.zip_code,
+// 				value: d.id
+// 			}
+// 		}),
+// 		data_loading: false
+// 	});
+// })
+
+// eslint-disable-next-line
+this.gApi = new GraphApi();	
+
+class GraphApi{
+	constructor(){
+		const { graphEndPoint } = Config;
+		this.instance = axios.create({
+            baseURL: graphEndPoint,
+            timeout: 30000,
+            transformRequest: this.transform,
+            headers: {}
+		})
+	}
+
+	get(uri, params) {
+        return this.instance.get(`/graphql${uri}?query=${params}`, {
+            params: {
+                ...params
+            }
+        })
+        .then(response => {
+            const { data } = response
+            return data;
+        })
+        .catch(err => {
+            console.log("ERROR on GET REQUEST", err);
+            return false;
+        })
+
+    }
+
+    transform(object) {
+        let arr = [];
+        for(let p in object) {
+            if(object.hasOwnProperty(p)) {
+                arr.push(encodeURIComponent(p) + "=" + encodeURIComponent(object[p]))
+            }
+        }
+        return arr.join("&");
+    }
+
+}*/

@@ -6,6 +6,8 @@ import DrawerButton from './tehbuttondrawer/';
 
 import TehChat from '../common/tehChat';
 
+import AddressPicker from '../common/tehAddressPicker'
+
 class TemplateForm extends Component{
 
 	state = {
@@ -181,6 +183,16 @@ class TemplateForm extends Component{
 
 		return(
 			<div className="container">
+
+				
+
+				<div className="well">
+					<AddressPicker 
+						onChange={(data)=>{
+							console.log(data)
+						}}/>	
+				</div>
+
 
 				<TehChat 
 					firebase={{
