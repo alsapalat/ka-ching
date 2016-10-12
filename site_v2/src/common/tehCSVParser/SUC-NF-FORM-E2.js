@@ -9,171 +9,171 @@ class CSVParser extends Component{
 				{
 					name: "seq_no",
 					col: "A",
-					row: 8,
+					row: 8
 				},{
 					name: "name",
 					col: "B",
-					row: 8,
+					row: 8
 				},{
 					name: "faculty_rank",
 					col: "C",
-					row: 8,
+					row: 8
 				},{
 					name: "home_college",
 					col: "D",
-					row: 8,
+					row: 8
 				},{
 					name: "home_dept",
 					col: "E",
-					row: 8,
+					row: 8
 				},{
 					name: "is_faculty_member_tenured",
 					col: "F",
-					row: 8,
+					row: 8
 				},{
 					name: "ssl_salary_grade",
 					col: "G",
-					row: 8,
+					row: 8
 				},{
 					name: "annual_basic_salary",
 					col: "H",
-					row: 8,
+					row: 8
 				},{
 					name: "on_leave_without_pay",
 					col: "I",
-					row: 8,
+					row: 8
 				},{
 					name: "fulltime_equivalent",
 					col: "J",
-					row: 8,
+					row: 8
 				},{
 					name: "gender",
 					col: "K",
-					row: 8,
+					row: 8
 				},{
 					name: "highest_degree_attained",
 					col: "L",
-					row: 8,
+					row: 8
 				},{
 					name: "actively_pursuing_next_degree",
 					col: "M",
-					row: 8,
+					row: 8
 				},{
 					name: "specific_discipline_1_of_primary_teaching_load",
 					col: "N",
-					row: 8,
+					row: 8
 				},{
 					name: "specific_discipline_2_of_primary_teaching_load",
 					col: "O",
-					row: 8,
+					row: 8
 				},{
 					name: "specific_discipline_of_bachelors_degree",
 					col: "P",
-					row: 8,
+					row: 8
 				},{
 					name: "specific_discipline_of_masters_degree",
 					col: "Q",
-					row: 8,
+					row: 8
 				},{
 					name: "specific_discipline_of_doctorate",
 					col: "R",
-					row: 8,
+					row: 8
 				},{
 					name: "masters_degree_with_thesis",
 					col: "S",
-					row: 8,
+					row: 8
 				},{
 					name: "doctorate_with_dissertation",
 					col: "T",
-					row: 8,
+					row: 8
 				},{
 					name: "lab_credit_units",
 					col: "U",
-					row: 8,
+					row: 8
 				},{
 					name: "lec_credit_units",
 					col: "V",
-					row: 8,
+					row: 8
 				},{
 					name: "total_credit_units",
 					col: "W",
-					row: 8,
+					row: 8
 				},{
 					name: "lab_hours_per_week",
 					col: "X",
-					row: 8,
+					row: 8
 				},{
 					name: "lec_hours_per_week",
 					col: "Y",
-					row: 8,
+					row: 8
 				},{
 					name: "total_teaching_hours_per_week",
 					col: "Z",
-					row: 8,
+					row: 8
 				},{
 					name: "student_lab_contact_hours",
 					col: "AA",
-					row: 8,
+					row: 8
 				},{
 					name: "student_lec_contact_hours",
 					col: "AB",
-					row: 8,
+					row: 8
 				},{
 					name: "student_total_contact_hours",
 					col: "AC",
-					row: 8,
+					row: 8
 				},{
 					name: "lab_hours_per_week_voc",
 					col: "AD",
-					row: 8,
+					row: 8
 				},{
 					name: "lac_hours_per_week_voc",
 					col: "AE",
-					row: 8,
+					row: 8
 				},{
 					name: "total_teaching_hours_per_week_voc",
 					col: "AF",
-					row: 8,
+					row: 8
 				},{
 					name: "student_lab_contact_hours_voc",
 					col: "AG",
-					row: 8,
+					row: 8
 				},{
 					name: "student_lec_contact_hours_voc",
 					col: "AH",
-					row: 8,
+					row: 8
 				},{
 					name: "student_total_contact_hours_voc",
 					col: "AI",
-					row: 8,
+					row: 8
 				},{
 					name: "official_research_load",
 					col: "AJ",
-					row: 8,
+					row: 8
 				},{
 					name: "official_extension_services_load",
 					col: "AK",
-					row: 8,
+					row: 8
 				},{
 					name: "official_study_load",
 					col: "AL",
-					row: 8,
+					row: 8
 				},{
 					name: "official_load_for_production",
 					col: "AM",
-					row: 8,
-				},,{
+					row: 8
+				},{
 					name: "official_administrative_load",
 					col: "AN",
-					row: 8,
+					row: 8
 				},{
 					name: "other_official_load_credits",
 					col: "AO",
-					row: 8,
+					row: 8
 				},{
 					name: "total_work_load",
 					col: "AP",
-					row: 8,
+					row: 8
 				}
 			],
 			row_count: -1 // if -1 = GO UNTIL ALL COLUMNS ARE UNDEFINED
@@ -183,7 +183,7 @@ class CSVParser extends Component{
 
 	componentDidMount(){
 		/* set up XMLHttpRequest */
-		var url = `dist/src/${this.state.filename}`;
+		var url = `../dist/src/${this.state.filename}`;
 		var oReq = new XMLHttpRequest();
 		oReq.open("GET", url, true);
 		oReq.responseType = "arraybuffer";

@@ -171,7 +171,7 @@ class CSVParser extends Component{
 
 	componentDidMount(){
 		/* set up XMLHttpRequest */
-		var url = `dist/src/${this.state.filename}`;
+		var url = `../dist/src/${this.state.filename}`;
 		var oReq = new XMLHttpRequest();
 		oReq.open("GET", url, true);
 		oReq.responseType = "arraybuffer";

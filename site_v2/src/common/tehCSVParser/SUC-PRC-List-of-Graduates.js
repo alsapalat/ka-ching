@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class CSVParser extends Component{
 
 	state = {
-		filename: "00001034_NONSUC-PRC-List-of-Graduates_2013.xls",
+		filename: "00001040_SUC-PRC-List-of-Graduates_2013.xls",
 		FORM: {
 			columns: [
 				{
