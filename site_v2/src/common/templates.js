@@ -8,6 +8,9 @@ import TehChat from '../common/tehChat';
 
 import AddressPicker from '../common/tehAddressPicker'
 
+
+import QrReader from 'react-qr-reader';
+
 class TemplateForm extends Component{
 
 	state = {
@@ -186,6 +189,8 @@ class TemplateForm extends Component{
 
 				
 
+				<QRScanner />
+
 				<div className="well">
 					<AddressPicker 
 						onChange={(data)=>{
@@ -240,6 +245,63 @@ class TemplateForm extends Component{
 				</div>
 */}
 				<Separator/>
+			</div>
+		)
+	}
+}
+
+class QRScanner extends Component{
+
+	state = {
+		result: "",
+		status: "standby"
+	}
+
+	handleOnFound = (data) => {
+		this.setState({
+			result: data,
+			status: "found"
+		})
+	}
+
+	handleOnError = (err) => {
+		console.log(err);
+	}
+
+	render(){
+
+		const windowSize = {
+			height: 240,
+			width: 320
+		}
+
+		const { result, status } = this.state
+
+		return(
+			<div>
+				<button className="btn btn-primary" onClick={()=>{
+					this.setState({
+						status: (status === "standby") ? "scanning" : "standby"
+					})
+				}}>Scan</button>
+				<p>{status}</p>
+				<div style={{margin: "0 auto", width: `${windowSize.width}px`, height: `${windowSize.height}px`}}>
+					{(status === "scanning") ?
+						<QrReader
+							previewStyle={windowSize}
+							// eslint-disable-next-line
+							handleError={this.handleOnError}
+							// eslint-disable-next-line
+							handleScan={this.handleOnFound}/>
+							:
+						(status === "found") ?
+							<div>
+								Search for {result}
+							</div>
+							:
+							null
+					}
+				</div>
 			</div>
 		)
 	}

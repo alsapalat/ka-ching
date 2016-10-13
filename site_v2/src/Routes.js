@@ -28,6 +28,7 @@ import SUC_NF_FORM_E2 from './common/tehCSVParser/SUC-NF-FORM-E2'
 import SUC_NF_FORM_GH from './common/tehCSVParser/SUC-NF-FORM-GH'
 import SUC_NF_Research_Extension_Forms from './common/tehCSVParser/SUC-NF-Research-Extension-Forms'
 import SUC_PRC_List_of_Graduates from './common/tehCSVParser/SUC-PRC-List-of-Graduates'
+import Traffic_Violation from './common/tehCSVParser/Traffic-Violation'
 
 import Seeder from './common/tehSeeder';
 import NavStyle from './pages/nav_style1';
@@ -62,6 +63,7 @@ export const Routes = () =>{
 					<Route path="/csv-parser/SUC-NF-FORM-GH" component={ SUC_NF_FORM_GH } />
 					<Route path="/csv-parser/SUC-NF-Research-Extension-Forms" component={ SUC_NF_Research_Extension_Forms } />
 					<Route path="/csv-parser/SUC-PRC-List-of-Graduates" component={ SUC_PRC_List_of_Graduates } />
+					<Route path="/csv-parser/Traffic-Violation" component={ Traffic_Violation } />
 				</Route>
 				{ kachingRoute() }
 				<Route path="/" component={ Layout }>

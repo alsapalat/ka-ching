@@ -1,0 +1,23 @@
+.loop-box{
+	border: 1px solid #000;
+}
+
+.loop-selector{	
+	height: 240px;
+	width: 100%;
+	padding: 2px;
+	overflow: auto;
+}
+
+.loop-selector-wrapper{
+	white-space: nowrap;
+	margin: 0px;
+}
+
+.loop-box.item{
+    display: inline-block;
+	width: 200px;
+	height: 234px;
+	margin: 0px 2px;
+	padding: 5px;
+}

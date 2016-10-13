@@ -17,6 +17,7 @@ class CSVParser extends Component{
 			"SUC-NF-FORM-GH",
 			"SUC-NF-Research-Extension-Forms",
 			"SUC-PRC-List-of-Graduates",
+			"Traffic-Violation"
 		]
 	}
 

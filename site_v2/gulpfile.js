@@ -15,6 +15,8 @@ elixir(function(mix){
 		.copy(bower + 'bootstrap/dist/js/bootstrap.min.js', sourceJs + 'bootstrap.min.js')
         .copy(bower + 'jquery/dist/jquery.min.js', sourceJs + 'jquery.min.js')
         .copy(bower + 'js-xlsx/dist/xlsx.core.min.js', sourceJs + 'xlsx.core.min.js')
+        .copy(nodemodules + 'jsbarcode/dist/JsBarcode.all.min.js', sourceJs + 'JsBarcode.all.min.js')
+
         // css
         .copy(bower + 'bootstrap/dist/css/bootstrap.min.css', sourceCss + 'bootstrap.min.css')
         .copy(bower + 'font-awesome/css/font-awesome.min.css', sourceCss + 'font-awesome.min.css')
@@ -26,7 +28,8 @@ elixir(function(mix){
         .scripts([
             'jquery.min.js',
             'bootstrap.min.js',
-            'xlsx.core.min.js'
+            'xlsx.core.min.js',
+            'JsBarcode.all.min.js'
     	],'dist/js/common.min.js')
 
 		.styles([

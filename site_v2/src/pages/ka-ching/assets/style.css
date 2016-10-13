@@ -7,6 +7,11 @@
     bottom: 0;
 }
 
+input,
+button{
+	outline:none;
+}
+
 .container.navi-L{
     padding-top:200px;
 }
@@ -15,7 +20,11 @@
     padding-top:48px;
 }
 
-.navi-logo{
+.navi-brand{
+    width: 100px;
+}
+
+.navi-brand .navi-logo{
 
 }
 
@@ -23,7 +32,6 @@
     font-size: 37px;
     position: relative;
     right: 15px;
-    top: 1px;
 }
 
 .navi-custom{
@@ -63,5 +71,19 @@
 }
 
 .navi-search{
-    margin: 8px;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    left: 100px;
+}
+
+@media(max-width: 768px){
+
+    .navi-brand{
+        width: 50px;
+    }
+
+    .navi-search{
+        left: 50px;
+    }
 }
