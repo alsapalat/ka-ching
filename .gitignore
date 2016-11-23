@@ -8,3 +8,7 @@ api/node_modules/*
 
 site_v2/node_modules/*
 site_v2/bower_components/*
+
+
+site_v1/node_modules/*
+site_v1/bower_components/*
