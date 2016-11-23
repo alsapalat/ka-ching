@@ -21,6 +21,7 @@ class Home extends Component{
 			<div>
 				<h4>Newly Added</h4>
 				<LoopSelector
+					name="loop1"
 					/>
 				<div className="well" style={{marginTop: "20px", minHeight:"900px"}}>
 

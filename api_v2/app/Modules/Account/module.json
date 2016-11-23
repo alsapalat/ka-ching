@@ -1,0 +1,9 @@
+{
+	"name": "Account",
+	"slug": "account",
+	"namespace": "Account",
+	"version": "1.0",
+	"author": "spidey337",
+	"license": "MIT",
+	"description": "This is the description for the Account module."
+}

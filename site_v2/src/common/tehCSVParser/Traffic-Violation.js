@@ -3,19 +3,34 @@ import React, { Component } from 'react';
 class CSVParser extends Component{
 
 	state = {
-		filename: "traffic_violations.xls",
+		filename: "traffic_violations2.xls",
 		violations: {
 			columns: [
 				{
 					name: "violation",
+					col: "D",
+					row: 3,
+				},{
+					name: "code",
 					col: "A",
-					row: 1,
-				},
-				{
-					name: "fine",
-					col: "B",
-					row: 1,
-				},
+					row: 3,
+				},{
+					name: "category",
+					col: "E",
+					row: 3,
+				},{
+					name: "first_offence",
+					col: "F",
+					row: 3,
+				},{
+					name: "second_offence",
+					col: "G",
+					row: 3,
+				},{
+					name: "third_offence",
+					col: "H",
+					row: 3,
+				}
 			],
 			row_count: -1// if -1 = GO UNTIL ALL COLUMNS ARE UNDEFINED
 		},
@@ -45,24 +60,129 @@ class CSVParser extends Component{
 
 		  let v_raw = this.generateFromRow(workbook.Sheets["Sheet1"],this.state.violations);
 
-		  let violations = this.newformatViolation(v_raw);
+		  let violations = this.newformatViolation2(v_raw);
 
-		  //console.log(profile)
+		  // //console.log(profile)
 
-		  let format_data = Object.assign({},{
-		  	violations,
-		  });
+		  // let format_data = Object.assign({},{
+		  // 	violations,
+		  // });
 
-		  console.log(format_data)
+		  console.log(violations)
 
 		  this.setState({
-		  	json: JSON.stringify(format_data)
+		  	json: JSON.stringify(violations)
 		  })
 
 		  /* DO SOMETHING WITH workbook HERE */
 		}
 
 		oReq.send();
+	}
+
+	toOffence = (i) => {
+		switch(i){
+			case 1:
+				return "(2nd Offence)"
+			case 2:
+				return "(3rd Offence)"
+			default:
+				return "(1st Offence)"
+		}
+	}
+
+	newformatViolation2 = (src) => {
+		let new_v = [];
+		let rems = [];
+		let row = 0;
+		for(let i =0;i < src.length;i++){
+			if(src[i].code){
+				for(let j=0;j<3;j++){
+					let fine = "";
+					let remarks = "";
+					switch(j)
+					{
+						case 1:
+							if(!isNaN(src[i].second_offence))
+								fine = src[i].second_offence
+							else
+								remarks = src[i].second_offence
+							break;
+						case 2:
+							if(!isNaN(src[i].third_offence))
+								fine = src[i].third_offence
+							else
+								remarks = src[i].third_offence
+							break;
+						default:
+							if(!isNaN(src[i].first_offence))
+								fine = src[i].first_offence
+							else
+								remarks = src[i].first_offence
+							break;
+					}
+					new_v.push({
+						id: row,
+						code: src[i].code,
+						description: `${src[i].violation} ${this.toOffence(j)}`,
+						category: src[i].category,
+						offence: j + 1,
+						fine: fine,
+						remarks: remarks
+					})
+				}
+				row++;
+			}else{
+				for(let j=0;j<3;j++){
+					let fine;
+					let remarks;
+					switch(j)
+					{
+						case 1:
+							if(!isNaN(src[i].second_offence))
+								fine = src[i].second_offence
+							else
+								remarks = src[i].second_offence
+							break;
+						case 2:
+							if(!isNaN(src[i].third_offence))
+								fine = src[i].third_offence
+							else
+								remarks = src[i].third_offence
+							break;
+						default:
+							if(!isNaN(src[i].first_offence))
+								fine = src[i].first_offence
+							else
+								remarks = src[i].first_offence
+							break;
+					}
+					rems.push({
+						code: new_v[new_v.length-1].code,
+						description: new_v[new_v.length-1].description,
+						category: new_v[new_v.length-1].category,
+						offence: j + 1,
+						fine: fine,
+						remarks: remarks
+					})
+				}
+			}
+		}
+
+		let return_value = new_v.map((v)=>{
+			let obj = v;
+			for(let i = 0;i<rems.length;i++){
+				if((v.code === rems[i].code) && (v.category === rems[i].category) && (v.offence === rems[i].offence)){	
+					if(rems[i].fine)
+						obj.fine = rems[i].fine
+					else
+						obj.remarks = rems[i].remarks
+				}	
+			}
+			return obj;
+		})
+
+		return return_value;
 	}
 
 	newformatViolation = (src,cat="A") => {
