@@ -1,0 +1,90 @@
+
+users{
+	uid{
+		display_name,
+		profile{
+			first_name
+			last_name
+			address
+		},
+		contact_info,	//json_format
+		title,
+		rating,
+		certified_seller
+	}
+}
+
+products{
+	pid{
+		name,
+		short_description,
+		thumbs,
+		price,
+		description,
+		specifications,	//json_format
+		image1,
+		image2,
+		image3,
+		image4,
+		image5,
+		image6,
+		tags
+	}
+}
+
+user_products{
+	uid{
+		pid
+	}
+}
+
+on_sale{
+	id{
+		pid,
+		uid,
+		quantity,
+		type, 		//meet-up, delivery, pickup
+		remarks, 	
+		status,		//sale, sold-out, out-of-stock
+		estimate_restock
+	}
+}
+
+user_sold{
+	uid{
+		id{
+			pid,
+			uid,
+			quantity,
+			type,
+			user_feedback,
+			product_feedback,
+			buyer(display_name),
+			email,
+			date_sold,
+			date_feedback
+		}
+	}
+}
+
+chatroom{
+	room_id{
+		label,
+		uid,		//owner
+		messages{
+			id{
+				message,
+				sender,
+				date
+			}
+		}
+	}
+}
+
+user_chatroom{
+	uid{
+		room_id{
+			is_active
+		}
+	}
+}
