@@ -1,4 +1,4 @@
-import Auth from '../../NotFound';
+import Auth from './index';
 
 export const authRoute = {
 	path: '/auth(:type)',

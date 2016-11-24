@@ -16,5 +16,5 @@ render(
 			history={ history }
 			routes={ routes}/>
 	</Provider>,
-	document.getElemenById('root')
+	document.getElementById('root')
 );

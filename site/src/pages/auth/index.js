@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Home extends Component {
+class Auth extends Component {
 	render(){
 		return(
 			<div className="text-center">
-				<h1>Home Page</h1>
+				<h1>Login Page</h1>
 			</div>
 		)
 	}
 }
 
-export default Home;
+export default Auth;

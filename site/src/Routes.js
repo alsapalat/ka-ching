@@ -9,11 +9,10 @@ export const routes = {
 	getChildRoutes(partialNextState, cb){
 		
 		const defaultAppRoutes = [
-
+			authRoute
 		]
 
 		cb(null, [
-			authRoute,
 			{
 				path: '/',
 				component: App,

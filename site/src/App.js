@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 //Load Firebase Here...
 
 class App extends Component {
 	render(){
-		<div>
-			{this.props.children}
-		</div>
+		return(
+			<div>
+				<Link to="/auth">Login</Link>
+				<Link to="/">Home</Link>
+				{this.props.children}
+			</div>
+		)
 	}
 }
 
