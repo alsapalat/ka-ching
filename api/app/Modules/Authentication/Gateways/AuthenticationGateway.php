@@ -26,6 +26,7 @@ class AuthenticationGateway
 
      public function authenticate($credentials)
     {
+        
         self::jwtInitCore();
 
         if(! $token = JWTAuth::attempt($credentials)) {

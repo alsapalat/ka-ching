@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 	Route::get('/verify/email','UserController@verifyemail');
-	Route::get('/user','UserController@index');
-	Route::post('/signup', 'UserController@store');
-	Route::patch('/user/{id}', 'UserController@update');
-	Route::get('/user/{id}', 'UserController@show');
-	Route::delete('/user/{id}', 'UserController@destroy');
+	Route::get('/user', ['uses' => 'UserController@index', 'as' => 'user.index']);
+	Route::post('/signup', ['uses' => 'UserController@store', 'as' => 'user.store']);
+	Route::patch('/user/{id}', ['uses' => 'UserController@update', 'as' => 'user.update']);
+	Route::get('/user/{id}', ['uses' => 'UserController@show', 'as' => 'user.show']);
+	Route::delete('/user/{id}', ['uses' => 'UserController@destroy', 'as' => 'user.destoy']);

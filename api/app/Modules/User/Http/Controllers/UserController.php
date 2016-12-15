@@ -29,7 +29,7 @@ class UserController extends Controller
         return $this->gateway->getByID($id);
     }
 
-    public function update(Request $request, $id)
+    public function update(UserSignupRequest $request, $id)
     {
         $user = array(
             "name" => $request->input('name'),

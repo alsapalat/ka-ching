@@ -50,7 +50,21 @@ class UserGateway
     public function verifyemail($email)
     {
   
-        return $this->userRepo->findBy('email',$email)->get(['display_name']);
+        $user = $this->userRepo->findBy('email',$email)->get(['display_name']);
+        if $user->isempty(){
+            $response = [
+                'status'     => false,
+                'message'    => 'Email not found!'
+            ];
+            return ApiResponse::responseData($response);
+        }
+        $response = [
+            'status'     => true,
+            'credential' => [$user],
+            'message'    => 'Success!'
+        ];
+        return ApiResponse::responseData($response);
+        
     }
 
 }
