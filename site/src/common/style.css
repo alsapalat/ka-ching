@@ -1,0 +1,30 @@
+@-webkit-keyframes loading {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+.loader-wrapper{
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 4px;
+	z-index: 9999;
+}
+
+.loader-wrapper .loader-loading{
+	height: 100%;
+	background: #f00;
+
+    -webkit-animation-name: loading;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+}

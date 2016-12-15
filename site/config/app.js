@@ -1,3 +1,3 @@
 var config = {};
-config.baseName = "/";
+config.endPoint = "http://localhost:8099/";
 module.exports = config;
