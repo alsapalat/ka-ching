@@ -4,6 +4,8 @@ import { Navigation } from './common/Navbar';
 
 import TehChat from './common/tehChat';
 
+import Mascot from './pages/mascot';
+
 class Layout extends Component{
 
 	render(){
@@ -53,6 +55,8 @@ class Layout extends Component{
 							}}/>
 					</div>
 				</div>
+
+				<Mascot />
 
 			</div>
 		)

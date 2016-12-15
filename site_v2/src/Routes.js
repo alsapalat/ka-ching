@@ -13,7 +13,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 import Layout from './Layout';
 
-import TemplateForm from './common/templates';
+//import TemplateForm from './common/templates';
 import CSVNormalizer from './common/csv_normalizer';
 import CSVParser from './common/tehCSVParser';
 
@@ -48,7 +48,7 @@ export const Routes = () =>{
 		<Provider store={ store }>
 			<Router history={ history } onUpdate={()=>{ window.scrollTo(0,0);}}>
 				<Route path="/nav-style" component={ NavStyle }/>
-				<Route path="/templates" component={ TemplateForm }/>
+				{/*<Route path="/templates" component={ TemplateForm }/>*/}
 				<Route path="/csv-normalizer" component={ CSVNormalizer }/>
 				<Route path="/csv-parser" component={ CSVParser }>
 					<IndexRoute component={ NONSUC_e_Forms_A } />
