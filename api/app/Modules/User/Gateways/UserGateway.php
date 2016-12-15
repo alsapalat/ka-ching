@@ -50,7 +50,7 @@ class UserGateway
     public function verifyemail($email)
     {
   
-        $user = $this->userRepo->findBy('email',$email)->get(['display_name']);
+        $user = $this->userRepo->findBy('email',$email)->first();
         if ($user->isempty()){
             $response = [
                 'status'     => false,
