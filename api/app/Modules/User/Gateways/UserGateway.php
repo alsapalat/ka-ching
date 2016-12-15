@@ -26,7 +26,7 @@ class UserGateway
 
     public function newUser($data)
     {
-         $this->userRepo->Save($data);
+         $this->userRepo->SaveUser($data);
         return "New User Added";
     }
     public function getByID($id)
@@ -51,7 +51,7 @@ class UserGateway
     {
   
         $user = $this->userRepo->findBy('email',$email)->get(['display_name']);
-        if $user->isempty(){
+        if ($user->isempty()){
             $response = [
                 'status'     => false,
                 'message'    => 'Email not found!'
