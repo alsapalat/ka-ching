@@ -26,7 +26,7 @@ class UserGateway
 
     public function newUser($data)
     {
-         $this->userRepo->SaveUser($data);
+        $this->userRepo->SaveUser($data);
         return "New User Added";
     }
     public function getByID($id)

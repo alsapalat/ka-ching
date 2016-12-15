@@ -25,7 +25,7 @@ class UserSignupRequest extends Request
     {
 
         return [
-            'email'     =>  'required|email',
+            'email'     =>  'required|email|unique:email',
             'password'  =>  'required|confirmed',
             'password_confirmation' => 'required'
         ];

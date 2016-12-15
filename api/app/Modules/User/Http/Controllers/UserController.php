@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         return $this->gateway->getIndex();
     }
-    public function store(Request $request)
+    public function store(UserSignupRequest $request)
     {
         return $this->gateway->newUser($request->all());
     }
@@ -29,10 +29,10 @@ class UserController extends Controller
         return $this->gateway->getByID($id);
     }
 
-    public function update(UserSignupRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $user = array(
-            "name" => $request->input('name'),
+            "display_name" => $request->input('name'),
             "email" => $request->input('email'),
             );
  
