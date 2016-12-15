@@ -4,7 +4,7 @@ site/dist/*
 site/node_modules/*
 site/bower_components/*
 npm-debug.log
-api/node_modules/*
+api_v1/node_modules/*
 
 site_v2/node_modules/*
 site_v2/bower_components/*
