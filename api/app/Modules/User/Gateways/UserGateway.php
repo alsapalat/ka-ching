@@ -51,7 +51,7 @@ class UserGateway
     {
   
         $user = $this->userRepo->findBy('email',$email)->first();
-        if ($user->isempty()){
+        if (!$user){
             $response = [
                 'status'     => false,
                 'message'    => 'Email not found!'
