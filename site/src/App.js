@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-
+import { connect } from 'react-redux';
 import Navigation from './common/Navigation';
+import Loader from './common/Loader';
+
+import './assets/css/style.css'
 
 //Load Firebase Here...
 
@@ -14,30 +16,25 @@ class App extends Component {
 		});
 	}
 
+
 	render(){
 		return(
 			<div ref="root" onScroll={this.handleScroll}>
+				<Loader isLoading={this.props.is_loading}/>
 				<Navigation />
-				<Link to="/auth">Login</Link>
-				<Link to="/">Home</Link>
-				{this.props.children}
-
-				<div className="well" style={{height:"200px", width: "500px", margin: "5px auto"}}>
-					Hello World
+				<div className="container">
+					{this.props.children}
 				</div>
-				<div className="well" style={{height:"200px", width: "500px", margin: "5px auto"}} />
-				<div className="well" style={{height:"200px", width: "500px", margin: "5px auto"}} />
-				<div className="well" style={{height:"200px", width: "500px", margin: "5px auto"}} />
-				<div className="well" style={{height:"200px", width: "500px", margin: "5px auto"}} />
-				<div className="well" style={{height:"200px", width: "500px", margin: "5px auto"}} />
-				<div className="well" style={{height:"200px", width: "500px", margin: "5px auto"}} />
-				<div className="well" style={{height:"200px", width: "500px", margin: "5px auto"}} />
-				<div className="well" style={{height:"200px", width: "500px", margin: "5px auto"}} />
-				<div className="well" style={{height:"200px", width: "500px", margin: "5px auto"}} />
-
 			</div>
 		)
 	}
 }
 
-export default App;
+export default connect(
+	state => {
+		const { is_loading } = state.common;
+		return{
+			is_loading
+		}
+	}
+)(App);
