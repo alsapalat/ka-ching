@@ -60,7 +60,7 @@ class UserGateway
         }
         $response = [
             'status'     => true,
-            'credential' => [$user],
+            'credential' => $user,
             'message'    => 'Success!'
         ];
         return ApiResponse::responseData($response);
