@@ -64,6 +64,8 @@ export const saveProfile = (id, payload) =>
 
 			Alert.success(res.data.message);
 	
+			sessionStorage.setItem('profile', JSON.stringify(res.data.credential))
+	
 			dispatch(commonAction.isLoading(false))
 		})
 }
