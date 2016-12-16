@@ -1,7 +1,7 @@
 import App from './App';
 import Home from './pages/home';
 
-import { authRoute } from './pages/auth/Route';
+import { authRoute, profileRoute } from './pages/auth/Route';
 
 import NotFound from './NotFound';
 
@@ -9,7 +9,8 @@ export const routes = {
 	getChildRoutes(partialNextState, cb){
 		
 		const defaultAppRoutes = [
-			authRoute
+			authRoute,
+			profileRoute
 		]
 
 		cb(null, [

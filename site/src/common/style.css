@@ -28,3 +28,7 @@
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: ease-in-out;
 }
+
+.s-alert-box{
+    z-index: 2000;
+}
