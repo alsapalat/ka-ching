@@ -24,7 +24,9 @@ class UpdateProfile extends Component {
 				type: "warning"
 			});
 		
-		console.log("Update Profile", this.state)
+		console.log("Update Profile", {
+			display_name: this.state.display_name
+		})
 	}
 
 	handleChangePassword = () => {
