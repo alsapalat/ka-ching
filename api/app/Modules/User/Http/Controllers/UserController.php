@@ -29,15 +29,10 @@ class UserController extends Controller
         return $this->gateway->getByID($id);
     }
 
-    public function update(Request $request, $id)
+    public function updateName(Request $request, $id)
     {
-        $user = array(
-            "display_name" => $request->input('display_name')
-            );
- 
-
-        
-        return $this->gateway->editUser($id, $user);
+        $data = ['display_name' => $request->input('display_name')];
+        return $this->gateway->editUser($id, $data);
     }
 
     public function destroy($id)
