@@ -1,5 +1,13 @@
 .login-wrapper{
-	max-width: 400px;
-	margin: 0 auto;
-	padding: 10px;
+}
+
+.login-container{
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #eaeaea;
+    background: #f8f8f8;
+    overflow: auto;
+    margin: 0 auto;
+    min-width: 250px;
+    max-width: 350px;
 }
