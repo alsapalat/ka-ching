@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { Label, Toss } from '../../common/Common';
+import { Label, Toss, ImageUploader } from '../../common/Common';
+
+import * as actions from './Actions';
 
 class UpdateProfile extends Component {
 
 	state = {
 		email: "",
 		display_name: ""
+	}
+
+	componentWillMount(){
+		let profile = JSON.parse(sessionStorage.getItem('profile'));
+
+		this.setState({
+			...profile
+		})
 	}
 
 	handleChange = (e) => {
@@ -24,7 +35,7 @@ class UpdateProfile extends Component {
 				type: "warning"
 			});
 		
-		console.log("Update Profile", {
+		this.props.saveProfile(this.state.id, {
 			display_name: this.state.display_name
 		})
 	}
@@ -42,6 +53,11 @@ class UpdateProfile extends Component {
 			<div className="login-wrapper text-center">
 				<div className="login-container">
 					<h2>Update Profile</h2>
+
+					<div style={{display: "inline-block"}}>
+						<ImageUploader />
+					</div>
+
 					<form onSubmit={this.handleSubmit}>
 						<div className="form-group">
 
@@ -72,4 +88,11 @@ class UpdateProfile extends Component {
 	}
 }
 
-export default UpdateProfile;
+export default connect(
+	state => {
+		return{
+
+		}
+	},
+	actions
+)(UpdateProfile);

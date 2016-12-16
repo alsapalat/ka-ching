@@ -2,13 +2,9 @@
 import axios from 'axios';
 import Config from '../config/app';
 import { getFirstMessage, isLoading, errorResponse } from './Actions';
+import Alert from 'react-s-alert';
 import _ from 'lodash';
 
-const Alert = () => {
-    const error = (message) => {
-        console.log(message);
-    }
-}
 
 class Api {
     constructor() {
@@ -46,12 +42,14 @@ class Api {
                 return data;
             })
             .catch(err => {
-                const { status, data } = err;
+
+                const { status, data } = err.response;
+
                 if(status === 422){
-                    Alert.error(getFirstMessage(err.data.errors)[0])
+                    Alert.error(getFirstMessage(data.errors)[0])
                 }
                 if([400, 401,404,400,403].indexOf(status) >= 0) {
-                    Alert.error(data.message)
+                    Alert.error(data.data.message)
                 }
                 dispatch(isLoading(false))
                 return false;
@@ -77,7 +75,7 @@ class Api {
             })
             .catch(err => {
 
-                const { status, data } = err;
+                const { status, data } = err.response;
                 
                 if(err.status === 422){
                     Alert.error(getFirstMessage(data.errors)[0])
@@ -119,9 +117,9 @@ class Api {
             })
             .catch(err => {
 
-                const { status, data } = err;
+                const { status, data } = err.response;
                 if(err.status === 422){
-                    Alert.error(getFirstMessage(err.data.errors)[0])
+                    Alert.error(getFirstMessage(data.errors)[0])
                 }
 
                 if(status === 401){
@@ -151,7 +149,7 @@ class Api {
         })
         .catch(err => {
 
-            const { status, data } = err;
+            const { status, data } = err.response;
 
             if(status === 422){
                 Alert.error(getFirstMessage(data.errors)[0])
@@ -166,7 +164,7 @@ class Api {
             }
 
             dispatch(isLoading(false));
-            dispatch(errorResponse(err.data));
+            dispatch(errorResponse(data));
 
             return false;
         })

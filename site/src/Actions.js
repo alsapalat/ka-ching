@@ -1,6 +1,5 @@
 import * as c from './Constants';
 
-
 export const isLoading = (is_loading) => ({
     type: c.COMMON_IS_LOADING,
     is_loading

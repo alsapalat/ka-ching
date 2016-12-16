@@ -8,6 +8,30 @@ class Navigation extends Component {
 		console.log("Search!");
 	}
 
+	handleLogout = () => {
+		sessionStorage.removeItem('token');
+		sessionStorage.removeItem('profile');
+	}
+
+	_renderUser = () => {
+		let profile = JSON.parse(sessionStorage.getItem('profile'));
+
+		if(profile)
+			return(
+				<li className="dropdown">
+					<a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{profile.email} <span className="caret"></span></a>
+					<ul className="dropdown-menu">
+						<li><Link to="/profile">Profile</Link></li>
+						<li role="separator" className="divider"></li>
+						<li><Link to="/" onClick={this.handleLogout}>Logout</Link></li>
+					</ul>
+				</li>
+			)
+		return(
+			<li><Link to="/auth">Sign-in/Sign-up</Link></li>
+		)
+	}
+
 	render(){
 		return(
 			<nav className="navbar navbar-default navbar-fixed-top ">
@@ -30,7 +54,7 @@ class Navigation extends Component {
 				        <button type="submit" className="btn btn-default"><i className="fa fa-search" /></button>
 				      </form>
 				      <ul className="nav navbar-nav navbar-right">
-				        <li><Link to="/auth">Account</Link></li>
+				      	{this._renderUser()}
 				      </ul>
 				    </div>
 			    </div>

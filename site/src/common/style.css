@@ -32,3 +32,37 @@
 .s-alert-box{
     z-index: 2000;
 }
+
+.img-upload-wrapper{
+    position: relative;
+    width: 128px;
+    height: 128px;
+    border-radius: 5px;
+    border: 1px solid #d7d7d7;
+    overflow: hidden;
+    background: #eee;
+}
+
+.img-upload-wrapper span{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-shadow: 1px 1px #000;
+    border: 5px solid #fff;
+    opacity: 0;
+
+    -webkit-transition: opacity ease-out 0.1s;
+    -moz-transition: opacity ease-out 0.1s;
+    -o-transition: opacity ease-out 0.1s;
+    transition: opacity ease-out 0.1s;
+}
+
+.img-upload-wrapper:hover span{
+    opacity: 1;
+    cursor: pointer;
+}
