@@ -45,9 +45,10 @@ class UserGateway
         $user = Auth::user(); 
         $this->userRepo->update($user['id'], $data);
 
+        $updatedUser = $this->userRepo->find($user['id']);
 
         $response = [
-            'message'    => 'User Updated!'
+            'credential'    => $updatedUser
         ];
         return ApiResponse::responseData($response);
     }
