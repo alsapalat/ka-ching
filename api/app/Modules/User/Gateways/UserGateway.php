@@ -26,8 +26,8 @@ class UserGateway
 
     public function newUser($data)
     {
-        $this->userRepo->SaveUser($data);
-        return "New User Added";
+        return $this->userRepo->SaveUser($data);
+        
     }
     public function getByID($id)
     {
@@ -38,9 +38,11 @@ class UserGateway
         $update = $this->userRepo->update($id, $user);
 
         if (!$update){
-            return ApiResponse::forbidden('Failed');
-        }else{
-            return ApiResponse::responseOK();
+            $response = [
+                'status'     => false,
+                'message'    => 'Email not found!'
+            ];
+            return ApiResponse::responseData($response);
         }
     }
     public function deleteUser($id) 

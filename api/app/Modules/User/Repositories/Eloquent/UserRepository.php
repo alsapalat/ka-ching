@@ -22,8 +22,7 @@ class UserRepository extends AbstractRepository implements UserInterface
         $user = new $this->model;
 
         $user->email = $data['email'];
-        $user->display_name = $data['display_name'];
-        $user->password = $data['display_name'];
+        $user->password = bcrypt($data['password']);
 
         $user->save();
 
