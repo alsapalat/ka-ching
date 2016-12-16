@@ -43,8 +43,13 @@ class UserGateway
     public function editUser($data)
     {
         $user = Auth::user(); 
-        return $this->userRepo->update($user['id'], $data);
+        $this->userRepo->update($user['id'], $data);
 
+
+        $response = [
+            'message'    => 'User Updated!'
+        ];
+        return ApiResponse::responseData($response);
     }
     public function deleteUser($id) 
     {
