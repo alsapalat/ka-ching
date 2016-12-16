@@ -25,6 +25,7 @@ class UserRepository extends AbstractRepository implements UserInterface
         $user->password = bcrypt($data['password']);
 
         $user->save();
+       
 
     }
 }

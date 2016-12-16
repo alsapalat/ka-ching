@@ -26,7 +26,14 @@ class UserGateway
 
     public function newUser($data)
     {
-        return $this->userRepo->SaveUser($data);
+        $this->userRepo->SaveUser($data);
+        
+        $response = [
+            'credential' => $data['email'],
+            'message'    => 'Success!'
+        ];
+        return ApiResponse::responseData($response);
+        
         
     }
     public function getByID($id)
