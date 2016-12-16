@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Modules\User\Gateways\UserGateway;
-
+use App\Modules\User\Http\Requests\UserSignupRequest;
 class UserController extends Controller
 {
     protected $gateway;
@@ -21,7 +21,7 @@ class UserController extends Controller
     }
     public function store(UserSignupRequest $request)
     {
-        return $this->gateway->newUser($request->all());
+        return $this->gateway->newUser($request->only(['email','password']));
     }
 
     public function show($id)
@@ -32,8 +32,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = array(
-            "display_name" => $request->input('name'),
-            "email" => $request->input('email'),
+            "display_name" => $request->input('display_name')
             );
  
 

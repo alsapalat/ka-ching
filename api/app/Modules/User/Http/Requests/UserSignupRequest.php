@@ -2,9 +2,8 @@
 
 namespace App\Modules\User\Http\Requests;
 
-use App\Http\Requests\Request;
-
-class UserSignupRequest extends Request
+use App\Abstracts\AbstractRequest;
+class UserSignupRequest extends AbstractRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +22,8 @@ class UserSignupRequest extends Request
      */
     public function rules()
     {
-
         return [
-            'email'     =>  'required|email|unique:email',
+            'email'     =>  'required|email|unique:users,email',
             'password'  =>  'required|confirmed',
             'password_confirmation' => 'required'
         ];
