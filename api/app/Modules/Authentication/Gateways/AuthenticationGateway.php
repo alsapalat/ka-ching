@@ -51,7 +51,7 @@ class AuthenticationGateway
         $response = [
             'status'     => true,
             'token'      => $token,
-            'credential' => $this->buildCredentialData($currentUser),
+            'credential' => $currentUser,
             'message'    => 'You have successfully logged in!'
         ];
 
@@ -63,6 +63,7 @@ class AuthenticationGateway
         return $credential = [
             'id'        => $currentUser->id,
             'email'     => $currentUser->email,
+
         ];
     }
 
