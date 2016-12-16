@@ -40,7 +40,7 @@ class UserGateway
     {
         return $this->userRepo->find($id);
     }
-    public function editUser($id, $data)
+    public function editUser($data)
     {
         $user = Auth::user(); 
         return $this->userRepo->update($user['id'], $data);
