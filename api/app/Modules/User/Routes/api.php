@@ -15,6 +15,6 @@ use Illuminate\Http\Request;
 	Route::get('/verify/email',['uses' => 'UserController@verifyemail', 'as' => 'user.verifyemail']);
 	Route::get('/user', ['uses' => 'UserController@index', 'as' => 'user.index']);
 	Route::post('/signup', ['uses' => 'UserController@store', 'as' => 'user.store']);
-	Route::patch('/user/{id}', ['uses' => 'UserController@update', 'as' => 'user.update']);
+	Route::patch('/user/{id}', ['uses' => 'UserController@updateName', 'as' => 'user.updateName'])->middleware('auth.token');;
 	Route::get('/user/{id}', ['uses' => 'UserController@show', 'as' => 'user.show']);
 	Route::delete('/user/{id}', ['uses' => 'UserController@destroy', 'as' => 'user.destoy']);

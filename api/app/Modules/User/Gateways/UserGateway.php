@@ -40,17 +40,11 @@ class UserGateway
     {
         return $this->userRepo->find($id);
     }
-    public function editUser($id, $user)
+    public function editUser($id, $data)
     {
-        $update = $this->userRepo->update($id, $user);
+        $user = Auth::user(); 
+        return $this->userRepo->update($user['id'], $data);
 
-        if (!$update){
-            $response = [
-                'status'     => false,
-                'message'    => 'Email not found!'
-            ];
-            return ApiResponse::responseData($response);
-        }
     }
     public function deleteUser($id) 
     {
