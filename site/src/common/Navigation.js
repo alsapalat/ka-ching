@@ -4,7 +4,8 @@ import { Link } from 'react-router';
 
 class Navigation extends Component {
 
-	handleSearch = () => {
+	handleSearch = (e) => {
+		e.preventDefault();
 		console.log("Search!");
 	}
 
@@ -48,10 +49,13 @@ class Navigation extends Component {
 
 				    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <form className="navbar-form navbar-left" onSubmit={this.handleSearch}>
-				        <div className="form-group">
+				        <div className="input-group">
 				          <input type="text" className="form-control" placeholder="Search" />
+				          <span className="input-group-btn">
+				          	<button type="submit" className="btn btn-default"><i className="fa fa-search" /></button>
+				          </span>
 				        </div>
-				        <button type="submit" className="btn btn-default"><i className="fa fa-search" /></button>
+				        
 				      </form>
 				      <ul className="nav navbar-nav navbar-right">
 				      	{this._renderUser()}

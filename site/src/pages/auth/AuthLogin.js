@@ -29,6 +29,7 @@ class AuthLogin extends Component {
 					<form onSubmit={this.handleSubmit}>
 						<div className="form-group">
 							<Label 
+								autoFocus
 								name="email"
 								label="Email"
 								type="email"

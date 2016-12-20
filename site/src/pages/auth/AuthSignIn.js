@@ -52,6 +52,7 @@ class AuthSignIn extends Component {
 								value={this.state.email}/>
 
 							<Label 
+								autoFocus
 								name="password"
 								label="Password"
 								type="password"

@@ -3,12 +3,13 @@ import './style.css';
 
 import Alert from 'react-s-alert';
 
-export const Label = ({label, onChange, value, name, disabled, type}) => (
+export const Label = ({label, onChange, value, name, disabled, type, autoFocus}) => (
 	<div>
 		<div className="text-left">
 			<label>{label}</label>
 			<input 
 				disabled={disabled}
+				autoFocus={autoFocus}
 				name={name}
 				type={type}
 				onChange={(onChange) ? onChange : (e) => { e.preventDefault(); }}
